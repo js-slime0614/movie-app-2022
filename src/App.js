@@ -1,9 +1,18 @@
 import React from 'react';
 
-function App() {
-  return <div className='App'>
-
-  </div>;
+class App extends React.Component {
+  state = {
+    isLoading: true
+  }
+  componentDidMount() {
+    setTimeout( () => {
+      this.setState({isLoading : false});
+    }, 6000);
+  }
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading...": "We are ready"}</div>;
+  }
 }
 
 export default App;
